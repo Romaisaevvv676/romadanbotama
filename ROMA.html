@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Особенное приглашение от меня, Ботам ❤️</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: black;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
+            position: absolute;
+            top: 1%;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            animation: fadeIn 1.5s ease-out;
+        }
+        button {
+            background: pink;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            animation: pulse 2s infinite;
+        }
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gentleAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        #message, #waitMessage {
+            opacity: 0;
+            animation: gentleAppear 2s ease-out forwards;
+            margin-top: 20px;
+        }
+
+        #message.show, #waitMessage.show {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <iframe class="video-bg" width="100%" height="100%" src="https://www.youtube.com/embed/jpzr0lsgTVg?autoplay=1&mute=1&loop=1&playlist=jpzr0lsgTVg" frameborder="0" allowfullscreen></iframe>
+
+    <audio id="bg-music" loop>
+        <source src="https://drive.google.com/uc?export=download&id=18SbcwsDGmawkvR-7LexRNMf335HZr6U-" type="audio/mp3">
+        Сіздің браузеріңіз аудио элементін қолдамайды.
+    </audio>
+
+    <div class="container">
+        <h2>Какая фотография мне нравится?</h2>
+        <div>
+            <img src="https://i.pinimg.com/736x/fa/a4/8a/faa48a1d12e733256d7601bbb386a042.jpg" onclick="wrongChoice()" width="150">
+            <img src="https://i.pinimg.com/736x/fa/f3/eb/faf3eb5fdc98f18c3e0a0ad99b8563af.jpg" onclick="correctChoice()" width="150">
+            <img src="https://i.pinimg.com/736x/2a/28/dd/2a28dde5ee88cb2d7aad19283e084cc0.jpg" onclick="wrongChoice()" width="150">
+        </div>
+
+        <h2 id="message" class="hidden">
+            Сможешь ли ты сделать меня самой счастливой<br> сегодня вечером?
+        </h2>
+        <h2 id="waitMessage" class="hidden">Я жду тебя здесь ❤️ </h2>
+
+        <!-- 2GIS сілтемесі және жаңа мәтін -->
+        <div id="map-container" class="hidden">
+            <a href="https://go.2gis.com/Nktp6" target="_blank">
+                <button>2GIS</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById('bg-music');
+            audio.play();
+        }
+
+        function correctChoice() {
+            var message = document.getElementById('message');
+            var waitMessage = document.getElementById('waitMessage');
+            message.classList.remove('hidden');
+            message.classList.add('show');
+            waitMessage.classList.remove('hidden');
+            waitMessage.classList.add('show');
+
+            var mapContainer = document.getElementById('map-container');
+            mapContainer.classList.remove('hidden'); // Картаны көрсету
+        }
+
+        function wrongChoice() {
+            alert('Бұл емес! Басқа суретті байқап көр!');
+        }
+    </script>
+</body>
+</html>
